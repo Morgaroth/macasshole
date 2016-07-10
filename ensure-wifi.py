@@ -5,7 +5,7 @@ from time import sleep
 from datetime import datetime
 
 
-CONNECT_TIMEOUT = 1
+CONNECT_TIMEOUT = '1'
 CHECK_TIMEOUT = 5
 WAIT_FOR_TURNING_OFF = 2
 WAIT_FOR_TURNING_ON = 15

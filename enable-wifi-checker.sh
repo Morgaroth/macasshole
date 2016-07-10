@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-nohup ~/bin/ensure-wifi.py >> ~/logs/ensure-wifi.log &
+nohup ~/prv-projects/macasshole/ensure-wifi.py >> ~/logs/ensure-wifi.log &
 

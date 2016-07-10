@@ -2,8 +2,10 @@
 
 from subprocess import run, PIPE
 from time import sleep
+from datetime import datetime
 
-CONNECT_TIMEOUT = '1'
+
+CONNECT_TIMEOUT = 1
 CHECK_TIMEOUT = 5
 WAIT_FOR_TURNING_OFF = 2
 WAIT_FOR_TURNING_ON = 15
@@ -29,11 +31,11 @@ while True:
         sleep(CHECK_TIMEOUT)
 
     result = run(['networksetup', '-setairportpower', 'en0', 'off'], stdout=PIPE, stderr=PIPE)
-    print('Turning off Wi-Fi end with code %d\n\tstdout: %s\n\tstderr: %s' % (
-        result.returncode, repr(result.stdout), repr(result.stderr)))
+    print('%s: Turning off Wi-Fi end with code %d\n\tstdout: %s\n\tstderr: %s' % (
+        datetime.now().strftime('%H%M%S (%d/%b/%y)'), result.returncode, repr(result.stdout), repr(result.stderr)))
     sleep(WAIT_FOR_TURNING_OFF)
     result = run(['networksetup', '-setairportpower', 'en0', 'on'], stdout=PIPE, stderr=PIPE)
-    print('Turning on Wi-Fi end with code %d\n\tstdout: %s\n\tstderr: %s' % (
-        result.returncode, repr(result.stdout), repr(result.stderr)))
+    print('%s: Turning on Wi-Fi end with code %d\n\tstdout: %s\n\tstderr: %s' % (
+        datetime.now().strftime('%H%M%S (%d/%b/%y)'), result.returncode, repr(result.stdout), repr(result.stderr)))
     sleep(WAIT_FOR_TURNING_ON)
     code = execute_req().returncode

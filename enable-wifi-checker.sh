@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-nohup ~/prv-projects/macasshole/ensure-wifi.py >> ~/logs/ensure-wifi.log &
+SPT_DEBUG=1 nohup ~/prv-projects/macasshole/ensure-wifi.py >> ~/logs/ensure-wifi.log &
 

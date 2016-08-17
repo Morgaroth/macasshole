@@ -4,12 +4,6 @@ from datetime import datetime
 from subprocess import run, PIPE
 from time import sleep
 
-try:
-    from setproctitle import setproctitle
-except ImportError:
-    print("SetProcTitle module not found, may You should install it? 'pip install setproctitle'")
-    raise
-
 CONNECT_TIMEOUT = '1'
 CHECK_TIMEOUT = 5
 WAIT_FOR_TURNING_OFF = 2
@@ -17,8 +11,6 @@ WAIT_FOR_TURNING_ON = 15
 
 code = 0
 debug = False
-
-setproctitle('Wi-Fii Checker')
 
 
 def execute_req():
